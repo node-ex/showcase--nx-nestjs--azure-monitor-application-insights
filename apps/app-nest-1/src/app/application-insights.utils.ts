@@ -1,4 +1,5 @@
 import * as appInsights from 'applicationinsights';
+import { setTelemetryClient } from './application-insights.client';
 
 export class ApplicationInsightsUtils {
   static initialize(connectionString: string) {
@@ -42,5 +43,7 @@ export class ApplicationInsightsUtils {
     };
 
     appInsights.start();
+
+    setTelemetryClient(appInsights.defaultClient);
   }
 }
